@@ -32,7 +32,14 @@
   animation: floatAlt 5.5s ease-in-out infinite reverse;
 }
 
-.inner { position: relative; z-index: 2; }
+.inner { 
+  position: relative; 
+  z-index: 2; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 
 .headline {
   font-family: var(--font-heading);
@@ -86,7 +93,10 @@
 .collage {
   position: relative;
   height: 170px;
-  margin-top: 48px;
+  /* Add these two lines to center the avatar container */
+  max-width: 700px; 
+  margin: 48px auto 0; 
+  
   --animate-duration: 1s;
 }
 
@@ -121,11 +131,15 @@
   .avatar:nth-child(4),
   .avatar:nth-child(5),
   .avatar:nth-child(6) { display: none; }
-  .collage { height: 130px; }
+ .collage { 
+    height: 130px; 
+    max-width: 480px;}
 }
 
 @media (max-width: 600px) {
   .avatar:nth-child(3) { display: none; }
-  .collage { height: 110px; }
+  .collage { 
+    height: 110px; 
+    max-width: 320px;}
   .avatar:nth-child(2) { left: 90px; }
 }

@@ -1,31 +1,33 @@
 import styles from './Testimonials.module.css';
 
-const SIDE_AVATARS = [
-  { bg: '#c0e0b0', initials: 'GK' },
-  { bg: '#f0b0b0', initials: 'TN' },
-  { bg: '#f0c0a0', initials: 'BL' },
+// 1. Swap initials and colors for placeholder image URLs
+const LEFT_AVATARS = [
+  { img: 'https://i.pravatar.cc/150?img=12', delay: '0s' },
+  { img: 'https://i.pravatar.cc/150?img=35', delay: '0.3s' },
+  { img: 'https://i.pravatar.cc/150?img=47', delay: '0.6s' },
 ];
 
-const LEFT_AVATARS = [
-  { bg: '#d0b0e0', initials: 'VM' },
-  { bg: '#f0d0b0', initials: 'RH' },
-  { bg: '#a0c8f0', initials: 'SY' },
+const RIGHT_AVATARS = [
+  { img: 'https://i.pravatar.cc/150?img=68', delay: '0.2s' },
+  { img: 'https://i.pravatar.cc/150?img=59', delay: '0.5s' },
+  { img: 'https://i.pravatar.cc/150?img=33', delay: '0.8s' },
 ];
 
 export default function Testimonials() {
   return (
-    <section className={styles.section}>
+    <section className={styles.section} id="testimonials">
       <div className={`${styles.inner} reveal`}>
 
         {/* Left avatars */}
-        <div className={styles.leftAvatars} aria-hidden="true">
+        <div aria-hidden="true">
           {LEFT_AVATARS.map((av, i) => (
             <div
               key={i}
               className={styles.sideAv}
-              style={{ background: av.bg, animationDelay: `${i * 0.3}s` }}
+              style={{ animationDelay: av.delay }}
             >
-              <span>{av.initials}</span>
+              {/* Added the image tag here */}
+              <img src={av.img} alt="Customer" className={styles.avatarImg} />
             </div>
           ))}
         </div>
@@ -50,14 +52,15 @@ export default function Testimonials() {
         </div>
 
         {/* Right avatars */}
-        <div className={styles.rightAvatars} aria-hidden="true">
-          {SIDE_AVATARS.map((av, i) => (
+        <div aria-hidden="true">
+          {RIGHT_AVATARS.map((av, i) => (
             <div
               key={i}
               className={styles.rightAv}
-              style={{ background: av.bg, animationDelay: `${i * 0.4}s` }}
+              style={{ animationDelay: av.delay }}
             >
-              <span>{av.initials}</span>
+              {/* Added the image tag here */}
+              <img src={av.img} alt="Customer" className={styles.avatarImg} />
             </div>
           ))}
         </div>
