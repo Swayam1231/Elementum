@@ -69,18 +69,23 @@
 }
 
 /* Avatar columns */
-.leftAvatars,
-.rightAvatars {
+/* Container adjustments */
+.inner {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding-top: 20px;
+  justify-content: center;
+  padding: 60px 0;
 }
 
-.sideAv,
-.rightAv {
-  width: 56px;
-  height: 56px;
+.main {
+  max-width: 600px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Base Avatar Style */
+.sideAv, .rightAv {
+  position: absolute;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -92,12 +97,21 @@
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
   animation: float 4.5s ease-in-out infinite;
   border: 2px solid var(--color-white);
+  z-index: 1;
 }
 
-.rightAv {
-  width: 72px;
-  height: 72px;
-  font-size: 15px;
+/* Scattered Positions - Left Side */
+.sideAv:nth-child(1) { width: 56px; height: 56px; left: 0; top: 10%; }
+.sideAv:nth-child(2) { width: 44px; height: 44px; left: 15%; top: 45%; }
+.sideAv:nth-child(3) { width: 64px; height: 64px; left: 5%; bottom: 10%; }
+
+/* Scattered Positions - Right Side */
+.rightAv:nth-child(1) { width: 72px; height: 72px; right: 5%; top: 15%; }
+.rightAv:nth-child(2) { width: 48px; height: 48px; right: 20%; top: 50%; }
+.rightAv:nth-child(3) { width: 85px; height: 85px; right: 0; bottom: 5%; font-size: 15px;}
+
+@media (max-width: 900px) {
+  .sideAv, .rightAv { display: none; /* Hide floating avatars on small screens for cleaner UI */ }
 }
 
 @media (max-width: 900px) {

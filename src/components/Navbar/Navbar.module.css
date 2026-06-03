@@ -17,13 +17,12 @@
 }
 
 .logo {
-  font-family: var(--font-body);
-  font-weight: 300;
-  font-size: 15px;
-  letter-spacing: 0.06em;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: -0.02em;
   color: var(--color-dark);
   text-decoration: none;
-  text-transform: lowercase;
 }
 
 .links {
